@@ -46,7 +46,7 @@
 <script>
   // Import Swiper Vue.js components
   import { Swiper, SwiperSlide } from 'swiper/vue';
-  import MainCard from '../components/lendinmaincard.vue';
+  import MainCard from '../components/LendinMainCard.vue'; 
   import RegionCard from '../components/RegionCard.vue'
   // Import Swiper styles
   import 'swiper/css';
