@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import Slider from '../components/Slider.vue'
+import Slider from '../components/slider.vue'
 import headerCardInfo from '../main-info/menu_data.js'
 import { useCounterStore } from '../stores/counter.js'
 import RegionCard from '../components/RegionCard.vue'
