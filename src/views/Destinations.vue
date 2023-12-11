@@ -1,27 +1,42 @@
 <template >
-  <div class="destinations">
+  <div class="destinations" v-if="this.$route.name != 'region_info'">
     <div v-for="region, index in regionList" :key="index" >
       <RegionCard :card="region"/>
     </div>
-<CourseCard/>
   </div>
+  <RouterView/>
 </template>
 <script>
 import RegionCard from '../components/RegionCard.vue';
-import region_list from '../main-info/menu_data.js'
-import CourseCard from '../components/CourseCard.vue';
+import { RouterView } from 'vue-router'
 export default {
   components:{
     RegionCard,
-    CourseCard
+    RouterView
   },
   data() {
     return {
-      regionList : region_list.regionCard
+      regionList : []
     }
   },
   mounted() {
-    console.log("regionList", this.regionList)
+    console.log("regisddfonList", this.$route)
+    this.getRegionList()
+  },
+  methods: {
+    getRegionList(){
+      let requestOptions = {
+        method: 'GET'
+      }
+
+      fetch(`https://api.dev.realsoft.academy/api/public/get/all/region`, requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          this.regionList = result.data.region_list;
+          console.log(this.regionList)
+        })
+        .catch((error) => console.log('error', error))      
+    },
   },
 }
 </script>

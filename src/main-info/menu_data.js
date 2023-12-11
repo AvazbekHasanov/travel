@@ -12,37 +12,31 @@ export default {
       name: 'destinations',
       imglink: 'https://img.icons8.com/ios/50/reichstag.png'
     },
-    {
-      text: 'Turar joy',
-      path: 'accommodation',
-      name: 'accommodation',
-      imglink:
-        'https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-accomodation-hotel-management-flaticons-lineal-color-flat-icons.png'
-    },
-    {
-      text: 'Transport',
-      path: 'transportation',
-      name: 'transportation',
-      imglink: 'https://img.icons8.com/glyph-neue/64/ground-transportation.png'
-    },
-    {
-      text: 'Viza va sayohat',
-      path: 'visa',
-      name: 'visa',
-      imglink: 'https://img.icons8.com/ios-filled/50/visa.png'
-    },
-    {
-      text: 'Oshxona va ovqatlanish',
-      path: 'cuisine',
-      name: 'cuisine',
-      imglink: 'https://img.icons8.com/glyph-neue/64/restaurant-membership-card.png'
-    },
-    {
-      text: 'Til va madaniyat',
-      path: 'culture',
-      name: 'culture',
-      imglink: 'https://img.icons8.com/android/24/monastery.png'
-    },
+    // {
+    //   text: 'Turar joy',
+    //   path: 'accommodation',
+    //   name: 'accommodation',
+    //   imglink:
+    //     'https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-accomodation-hotel-management-flaticons-lineal-color-flat-icons.png'
+    // },
+    // {
+    //   text: 'Transport',
+    //   path: 'transportation',
+    //   name: 'transportation',
+    //   imglink: 'https://img.icons8.com/glyph-neue/64/ground-transportation.png'
+    // },
+    // {
+    //   text: 'Viza va sayohat',
+    //   path: 'visa',
+    //   name: 'visa',
+    //   imglink: 'https://img.icons8.com/ios-filled/50/visa.png'
+    // },
+    // {
+    //   text: 'Oshxona va ovqatlanish',
+    //   path: 'cuisine',
+    //   name: 'cuisine',
+    //   imglink: 'https://img.icons8.com/glyph-neue/64/restaurant-membership-card.png'
+    // },
     {
       text: 'Ob-havo va iqlim',
       path: 'weather',

@@ -81,7 +81,7 @@ export default {
   },
   data() {
     return {
-      regionList: headerCardInfo.regionCard,
+      regionList: [],
       cardInfos: headerCardInfo.headerCardInfo,
     }
   },
@@ -90,8 +90,22 @@ export default {
   },
   mounted() {
     console.log("list pins",  this.$route.fullPath)
+    this.getRegionList();
   },
   methods: {
+    getRegionList(){
+      let requestOptions = {
+        method: 'GET'
+      }
+
+      fetch(`https://api.dev.realsoft.academy/api/public/get/all/region`, requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          this.regionList = result.data.region_list;
+          console.log(this.regionList)
+        })
+        .catch((error) => console.log('error', error))      
+    },
     menu() {
       const element = document.querySelector('.data-links')
       element.style.transform = 'translateY(0%)'

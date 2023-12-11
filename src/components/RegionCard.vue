@@ -1,20 +1,29 @@
 <template>
-  <div class="card_container box_shadow">
-    <img :src="card.regionImg" alt="RegionImage" class="region_image">
+  <router-link :to="`/dashboard/destinations/region_info?id=${this.card.id}`">
+
+    <div class="card_container box_shadow" @click="gotToBuy">
+    <img :src="card.photo" alt="RegionImage" class="region_image">
     <div class="card_content">
       <div class="card_content-item">
-         <span class="region_name"> {{ card.regionName }} </span>
-        <p class="region_advantage">{{ card.regionAdvantage }}</p>
+         <span class="region_name"> {{ card.name }} </span>
+        <p class="region_advantage">{{ card.desciption }}</p>
       </div>
     </div>
     <div class="blur_card">
 
     </div>
   </div>
+
+  </router-link>
 </template>
 <script>
 export default {
   props:['card'],
+  methods:{
+    gotToBuy(){
+      // window.location.assign(`destinations/region_info?id=${this.card.id}`)
+    },
+  },
 }
 </script>
 <style scoped>

@@ -17,7 +17,14 @@ const router = createRouter({
         {
           path: 'destinations',
           name: 'destinations',
-          component: () => import('../views/Destinations.vue')
+          component: () => import('../views/Destinations.vue'),
+          children: [
+            {
+              path: 'region_info',
+              name: 'region_info',
+              component: () => import('../views/RegionInfo.vue')
+            }
+          ]
         },
         {
           path: 'main',
@@ -45,9 +52,9 @@ const router = createRouter({
           component: () => import('../views/MyProfile.vue')
         },
         {
-          path: 'culture',
-          name: 'culture',
-          component: () => import('../views/MyProfile.vue')
+          path: 'addpleace',
+          name: 'addpleace',
+          component: () => import('../views/AddPleace.vue')
         },
         {
           path: 'weather',
@@ -64,23 +71,29 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/login.vue')
+      component: () => import('../views/login-user.vue')
     }
   ]
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.fullPath === 'http://localhost:5173/' || to.fullPath == '/' || to.fullPath == '/#about' || to.fullPath == '/#services' || to.fullPath == '/#contact' ) {
+  if (
+    to.fullPath === 'http://localhost:5173/' ||
+    to.fullPath == '/' ||
+    to.fullPath == '/#about' ||
+    to.fullPath == '/#services' ||
+    to.fullPath == '/#contact'
+  ) {
     // If the next route is http://localhost:5173/, do not redirect to login
-    next();
+    next()
   } else {
     // Continue with the original navigation guard logic
-    let isAuthenticated = localStorage.getItem('auth_users');
+    let isAuthenticated = localStorage.getItem('auth_users')
     if (to.name !== 'login' && !isAuthenticated && to.name !== '') {
-      next({ name: 'login' });
+      next({ name: 'login' })
     } else {
-      next();
+      next()
     }
   }
-});
+})
 export default router

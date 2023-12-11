@@ -83,10 +83,10 @@
           />
           <div class="new_profile-image">
             <img
-              v-if="false"
+              v-if="userInfo.photo"
               class="new_profile-ava"
               :class="{ active: isProfileOpened }"
-              src="https://expert.uz/media/store/new_images/default_user_ava.jpeg"
+              :src="userInfo.photo"
               alt=""
             />
             <img
@@ -99,39 +99,6 @@
           </div>
         </div>
         <div :class="{ active: isProfileOpened }" class="new_profile-menu">
-          <a href="/pages/userpage" class="new_profile_menu-item">
-            <img src="https://expert.uz/media/store/new_images/user.svg" alt="" />
-            Профиль
-          </a>
-          <a href="/pages/usersettingsedit" class="new_profile_menu-item">
-            <img src="https://expert.uz/media/store/new_images/settings.svg" alt="" />
-            Настройки
-          </a>
-          <div :class="{ active: hideLang }" class="new_profile_menu-item-lang">
-            <div @click="toggleLang" class="new_profile-language-top">
-              <div>
-                <!--                 <img src="/media/store/new_images/RU.svg" alt="" /> -->
-                Язык {{ currentLang }}
-              </div>
-              <img
-                :class="{ active: hideLang }"
-                class="lang_arrow"
-                src="https://expert.uz/media/store/new_images/arrow_bottom.svg"
-                alt=""
-              />
-            </div>
-            <div class="language_list">
-              <div
-                v-for="(lang, index) in languages"
-                :key="index"
-                @click="changeLanguage(lang)"
-                class="language_list-item"
-              >
-                <img :src="`https://expert.uz/media/store/new_images/${lang.img}.svg`" alt="" />
-                {{ lang.name }}
-              </div>
-            </div>
-          </div>
           <span class="profile_line"></span>
           <button @click="logout" class="new_profile_menu-item logout">
             Выйти из аккаунта
@@ -184,11 +151,11 @@ export default {
         { img: 'UZ', code: 'la', name: 'Oʻzbekcha' }
       ],
       hideLang: false,
-      userInfo: {},
       globSearch: null,
       searchResult: [],
       notifications: [],
-      isMobile: false
+      isMobile: false,
+      userInfo: JSON.parse(localStorage.getItem('auth_users')),
     }
   },
   props: {
@@ -269,18 +236,8 @@ export default {
       this.isProfileOpened = !this.isProfileOpened
     },
     logout() {
-      this.platonApp.confirmAction(
-        async () => {
-          localStorage.removeItem('auth_user')
+          localStorage.removeItem('auth_users')
           location.reload()
-        },
-        {
-          text: 'Тизимдан чиқишни хоҳлайсизми?',
-          modalProps: {
-            headerClass: 'bg-primary'
-          }
-        }
-      )
     }
   }
 }

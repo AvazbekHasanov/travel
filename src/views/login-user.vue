@@ -13,72 +13,33 @@
           <div class="login_inputs">
             <div class="login_input-item">
               <label for="login">Login</label>
-              <input
-                v-model="login.login"
-                type="text"
-                name="login"
-                id="login"
-                @focus="removeError"
-                autocomplete="off"
-                autofocus
-                @keydown="checkEnterPress"
-              />
+              <input v-model="login.login" type="text" name="login" id="login" @focus="removeError" autocomplete="off"
+                autofocus @keydown="checkEnterPress" />
             </div>
             <div class="login_input-item">
               <label for="login_password"> Parol </label>
               <div data-loginpassword="">
-                <input
-                  ref="loginPassword"
-                  v-model="login.password"
-                  type="password"
-                  name="password"
-                  id="login_password"
-                  @focus="removeError"
-                  @keydown="checkEnterPress"
-                />
-                <svg
-                  v-show="!login.eye"
-                  @click="loginEyeChange"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-1 3a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
-                    fill="#000"
-                  />
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                <input ref="loginPassword" v-model="login.password" type="password" name="password" id="login_password"
+                  @focus="removeError" @keydown="checkEnterPress" />
+                <svg v-show="!login.eye" @click="loginEyeChange" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-1 3a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" fill="#000" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M21.83 11.28C19.542 7.153 15.812 5 12 5c-3.812 0-7.542 2.152-9.83 6.28a1.376 1.376 0 0 0-.01 1.308C4.412 16.8 8.163 19 12 19c3.837 0 7.588-2.199 9.84-6.412a1.376 1.376 0 0 0-.01-1.307ZM12 17c-2.939 0-5.96-1.628-7.908-5.051C6.069 8.596 9.073 7 12 7c2.927 0 5.931 1.596 7.908 4.949C17.96 15.372 14.94 17 12 17Z"
-                    fill="#000"
-                  />
+                    fill="#000" />
                 </svg>
-                <svg
-                  v-show="login.eye"
-                  @click="loginEyeChange"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg v-show="login.eye" @click="loginEyeChange" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="m5.707 19.707 14-14a1 1 0 0 0-1.414-1.414l-14 14a1 1 0 1 0 1.414 1.414ZM12 5c1.201 0 2.394.214 3.536.635l-1.6 1.6A8.137 8.137 0 0 0 12 7c-2.927 0-5.931 1.596-7.908 4.949.654 1.15 1.43 2.097 2.282 2.848l-1.416 1.416c-1.071-.965-2.023-2.176-2.798-3.625a1.376 1.376 0 0 1 .01-1.307C4.458 7.15 8.188 5 12 5Z"
-                    fill="#000"
-                  />
+                    fill="#000" />
                   <path
                     d="M12 9c.056 0 .112.002.167.005l-3.162 3.162A3 3 0 0 1 12 9ZM14.995 11.833l-3.162 3.162a3 3 0 0 0 3.162-3.162Z"
-                    fill="#000"
-                  />
+                    fill="#000" />
                   <path
                     d="M12 17a8.047 8.047 0 0 1-1.935-.237L8.468 18.36c1.14.425 2.332.64 3.532.64 3.837 0 7.588-2.199 9.84-6.412a1.376 1.376 0 0 0-.01-1.307c-.776-1.4-1.717-2.573-2.771-3.511l-1.417 1.416c.842.732 1.61 1.65 2.266 2.763C17.96 15.372 14.94 17 12 17Z"
-                    fill="#000"
-                  />
+                    fill="#000" />
                 </svg>
               </div>
             </div>
@@ -100,116 +61,54 @@
           <div class="reg_input-list">
             <div class="login_input-item inputname" :data-state="inputErrorState.name">
               <label for="name">Ism</label>
-              <input
-                ref="inputname"
-                v-model="validate.name"
-                type="text"
-                name="name"
-                id="name"
-                @input="controlWrite($event)"
-                @focus="checkErrorFullname($event)"
-                :class="{ inputError: inputErrorState.name }"
-                autofocus
-                autocomplete="off"
-              />
+              <input ref="inputname" v-model="validate.name" type="text" name="name" id="name"
+                @input="controlWrite($event)" @focus="checkErrorFullname($event)"
+                :class="{ inputError: inputErrorState.name }" autofocus autocomplete="off" />
             </div>
 
             <div class="login_input-item inputname" :data-state="inputErrorState.surname">
               <label for="surname">Familiya</label>
-              <input
-                ref="inputsurname"
-                v-model="validate.surname"
-                type="text"
-                name="surname"
-                id="surname"
-                @input="controlWrite($event)"
-                @focus="checkErrorFullname($event)"
-                :class="{ inputError: inputErrorState.surname }"
-                autocomplete="off"
-              />
+              <input ref="inputsurname" v-model="validate.surname" type="text" name="surname" id="surname"
+                @input="controlWrite($event)" @focus="checkErrorFullname($event)"
+                :class="{ inputError: inputErrorState.surname }" autocomplete="off" />
             </div>
-            <div
-              class="login_input-item"
-              :data-state="inputErrorState.date"
-              @click="clearDateError"
-            >
+            <div class="login_input-item" :data-state="inputErrorState.date" @click="clearDateError">
               <label for="bday"> Tugilgan sana </label>
-              <input
-                v-model="validate.date"
-                type="date"
-                name="bday"
-                id="bday"
-                @input="dateCheck"
-                @change="dateCheck"
-                :class="{ inputError: inputErrorState.date }"
-                autocomplete="off"
-              />
+              <input v-model="validate.date" type="date" name="bday" id="bday" @input="dateCheck" @change="dateCheck"
+                :class="{ inputError: inputErrorState.date }" autocomplete="off" />
             </div>
             <!--                -->
             <div class="login_input-item" :data-state="inputErrorState.phone">
               <label for="phone">Telefon raqam</label>
-              <input
-                v-model="validate.phone"
-                type="tel"
-                name="phone"
-                id="phone"
-                @keydown="checkPress"
-                @input="phoneMasking"
-                @focus="clearPhoneError"
-                minLength="19"
-                :class="{ inputError: inputErrorState.phone }"
-                autocomplete="off"
-              />
+              <input v-model="validate.phone" type="tel" name="phone" id="phone" @keydown="checkPress"
+                @input="phoneMasking" @focus="clearPhoneError" minLength="19"
+                :class="{ inputError: inputErrorState.phone }" autocomplete="off" />
             </div>
             <div class="login_input-item" :data-state="inputErrorState.email">
               <label for="email">Email</label>
-              <input
-                v-model="validate.email"
-                type="email"
-                name="email"
-                id="email"
-                @keydown="checkPress"
-                @focus="clearEmailError"
-                :class="{ inputError: inputErrorState.email }"
-                autocomplete="password"
-              />
+              <input v-model="validate.email" type="email" name="email" id="email" @keydown="checkPress"
+                @focus="clearEmailError" :class="{ inputError: inputErrorState.email }" autocomplete="password" />
             </div>
 
-            <div
-              class="login_input-item"
-              :data-state="inputErrorState.region"
-              @click="clearRegionError"
-            >
+            <div class="login_input-item" :data-state="inputErrorState.region" @click="clearRegionError">
               <label for="region">Hudud</label>
 
               <div class="customSelectwrapper" id="region">
                 <div class="customSelectContainer" :class="{ inputError: inputErrorState.region }">
-                  <p
-                    ref="customSelectChooseRegion"
-                    class="customSelectPlaceholder"
-                    v-show="!customSelect.selectListBlock.show"
-                  >
+                  <p ref="customSelectChooseRegion" class="customSelectPlaceholder"
+                    v-show="!customSelect.selectListBlock.show">
                     Hududni tanlang
                   </p>
                   <div class="customSelectContainerWrapper">
                     <div class="selectListBlock" v-show="customSelect.selectListBlock.show">
                       <div class="countrySearchBlock" v-show="customSelect.regionSearchState.show">
-                        <input
-                          v-model="countryNameForSort"
-                          type="text"
-                          ref="searchRegion"
-                          class="customSelect_search"
-                          :placeholder="countrySearchPlaceholder"
-                        />
+                        <input v-model="countryNameForSort" type="text" ref="searchRegion" class="customSelect_search"
+                          :placeholder="countrySearchPlaceholder" />
                         <!--                       <div role="button" class="countrySearchBlockCloseBtn" @click="closeMenuSearchMenu">x</div> -->
                       </div>
                       <ul class="customSelectList">
-                        <li
-                          v-for="region in regionsClone"
-                          :key="region.id"
-                          class="customSelectItem"
-                          @click="chooseRegion(region.id)"
-                        >
+                        <li v-for="region in regionsClone" :key="region.id" class="customSelectItem"
+                          @click="chooseRegion(region.id)">
                           {{ region.country_name }}
                         </li>
                       </ul>
@@ -222,34 +121,18 @@
                 	<option :value="region.id" v-for="region in regions" :key="region.id">{{ region.country_name }}</option>
                 </select> -->
             </div>
-            <div
-              class="login_input-item"
-              :data-state="inputErrorState.gender"
-              @click="clearGenderError"
-            >
+            <div class="login_input-item" :data-state="inputErrorState.gender" @click="clearGenderError">
               <label for="gender">Jins</label>
-              <div
-                class="customGenderSelectBlock"
-                @click="chooseGender"
-                :class="[
-                  { classWhenGenderClicked: classWhenGenderClicked },
-                  { inputError: inputErrorState.gender }
-                ]"
-              >
-                <p
-                  ref="genderName"
-                  v-show="chooseGenderState"
-                  class="genderChooseCustomPlaceholder"
-                >
+              <div class="customGenderSelectBlock" @click="chooseGender" :class="[
+                { classWhenGenderClicked: classWhenGenderClicked },
+                { inputError: inputErrorState.gender }
+              ]">
+                <p ref="genderName" v-show="chooseGenderState" class="genderChooseCustomPlaceholder">
                   Jinsni tanlang
                 </p>
                 <ul class="genderList" v-show="!chooseGenderState">
-                  <li
-                    class="genderList-item"
-                    v-for="gender in genders"
-                    :key="gender.id"
-                    @click="choosingGenderItem(gender.id)"
-                  >
+                  <li class="genderList-item" v-for="gender in genders" :key="gender.id"
+                    @click="choosingGenderItem(gender.id)">
                     {{ gender.gender_name }}
                   </li>
                 </ul>
@@ -280,135 +163,62 @@
 
             <div class="login_input-item" :data-state="inputErrorState.login">
               <label for="reg_login">Login</label>
-              <input
-                v-model="validate.login"
-                type="text"
-                name="reg_login"
-                id="reg_login"
-                @input="controlWriteLogin"
-                @focus="clearLoginError"
-                :class="{ inputError: inputErrorState.login }"
-                autocomplete="off"
-              />
+              <input v-model="validate.login" type="text" name="reg_login" id="reg_login" @input="controlWriteLogin"
+                @focus="clearLoginError" :class="{ inputError: inputErrorState.login }" autocomplete="off" />
             </div>
             <div class="login_input-item" :data-state="inputErrorState.password">
               <label for="reg_password">Parol</label>
               <span class="passwordCover">
-                <input
-                  v-model="validate.password"
-                  :type="passwordControl"
-                  name="reg_password"
-                  id="reg_password"
-                  @input="controlWritePassword"
-                  @focus="clearPasswordError"
-                  :class="{ inputError: inputErrorState.password }"
-                  autocomplete="off"
-                />
-                <svg
-                  v-show="passwordEyeControl"
-                  @click="changePasswordInput"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-1 3a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
-                    fill="#000"
-                  />
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                <input v-model="validate.password" :type="passwordControl" name="reg_password" id="reg_password"
+                  @input="controlWritePassword" @focus="clearPasswordError"
+                  :class="{ inputError: inputErrorState.password }" autocomplete="off" />
+                <svg v-show="passwordEyeControl" @click="changePasswordInput" width="20" height="20" viewBox="0 0 24 24"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-1 3a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" fill="#000" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M21.83 11.28C19.542 7.153 15.812 5 12 5c-3.812 0-7.542 2.152-9.83 6.28a1.376 1.376 0 0 0-.01 1.308C4.412 16.8 8.163 19 12 19c3.837 0 7.588-2.199 9.84-6.412a1.376 1.376 0 0 0-.01-1.307ZM12 17c-2.939 0-5.96-1.628-7.908-5.051C6.069 8.596 9.073 7 12 7c2.927 0 5.931 1.596 7.908 4.949C17.96 15.372 14.94 17 12 17Z"
-                    fill="#000"
-                  />
+                    fill="#000" />
                 </svg>
-                <svg
-                  v-show="!passwordEyeControl"
-                  @click="changePasswordInput"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg v-show="!passwordEyeControl" @click="changePasswordInput" width="20" height="20" viewBox="0 0 24 24"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="m5.707 19.707 14-14a1 1 0 0 0-1.414-1.414l-14 14a1 1 0 1 0 1.414 1.414ZM12 5c1.201 0 2.394.214 3.536.635l-1.6 1.6A8.137 8.137 0 0 0 12 7c-2.927 0-5.931 1.596-7.908 4.949.654 1.15 1.43 2.097 2.282 2.848l-1.416 1.416c-1.071-.965-2.023-2.176-2.798-3.625a1.376 1.376 0 0 1 .01-1.307C4.458 7.15 8.188 5 12 5Z"
-                    fill="#000"
-                  />
+                    fill="#000" />
                   <path
                     d="M12 9c.056 0 .112.002.167.005l-3.162 3.162A3 3 0 0 1 12 9ZM14.995 11.833l-3.162 3.162a3 3 0 0 0 3.162-3.162Z"
-                    fill="#000"
-                  />
+                    fill="#000" />
                   <path
                     d="M12 17a8.047 8.047 0 0 1-1.935-.237L8.468 18.36c1.14.425 2.332.64 3.532.64 3.837 0 7.588-2.199 9.84-6.412a1.376 1.376 0 0 0-.01-1.307c-.776-1.4-1.717-2.573-2.771-3.511l-1.417 1.416c.842.732 1.61 1.65 2.266 2.763C17.96 15.372 14.94 17 12 17Z"
-                    fill="#000"
-                  />
+                    fill="#000" />
                 </svg>
               </span>
             </div>
-            <div
-              class="login_input-item repeat-password"
-              :data-state="inputErrorState.repeatPassword"
-            >
+            <div class="login_input-item repeat-password" :data-state="inputErrorState.repeatPassword">
               <label for="reg_new_password"> Parolni qayta kiriting </label>
               <span class="passwordCover">
-                <input
-                  v-model="validate.repeatPassword"
-                  :type="repeatControl"
-                  name="reg_new_password"
-                  id="reg_new_password"
-                  @focus="clearRepeatPasswordError"
-                  @input="controlWriteRepeat"
-                  :class="{ inputError: inputErrorState.repeatPassword }"
-                  autocomplete="off"
-                />
-                <svg
-                  v-show="repeatEyeControl"
-                  @click="changeRepeatPasswordInput"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-1 3a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
-                    fill="#000"
-                  />
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                <input v-model="validate.repeatPassword" :type="repeatControl" name="reg_new_password"
+                  id="reg_new_password" @focus="clearRepeatPasswordError" @input="controlWriteRepeat"
+                  :class="{ inputError: inputErrorState.repeatPassword }" autocomplete="off" />
+                <svg v-show="repeatEyeControl" @click="changeRepeatPasswordInput" width="20" height="20"
+                  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-1 3a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" fill="#000" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M21.83 11.28C19.542 7.153 15.812 5 12 5c-3.812 0-7.542 2.152-9.83 6.28a1.376 1.376 0 0 0-.01 1.308C4.412 16.8 8.163 19 12 19c3.837 0 7.588-2.199 9.84-6.412a1.376 1.376 0 0 0-.01-1.307ZM12 17c-2.939 0-5.96-1.628-7.908-5.051C6.069 8.596 9.073 7 12 7c2.927 0 5.931 1.596 7.908 4.949C17.96 15.372 14.94 17 12 17Z"
-                    fill="#000"
-                  />
+                    fill="#000" />
                 </svg>
-                <svg
-                  v-show="!repeatEyeControl"
-                  @click="changeRepeatPasswordInput"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg v-show="!repeatEyeControl" @click="changeRepeatPasswordInput" width="20" height="20"
+                  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="m5.707 19.707 14-14a1 1 0 0 0-1.414-1.414l-14 14a1 1 0 1 0 1.414 1.414ZM12 5c1.201 0 2.394.214 3.536.635l-1.6 1.6A8.137 8.137 0 0 0 12 7c-2.927 0-5.931 1.596-7.908 4.949.654 1.15 1.43 2.097 2.282 2.848l-1.416 1.416c-1.071-.965-2.023-2.176-2.798-3.625a1.376 1.376 0 0 1 .01-1.307C4.458 7.15 8.188 5 12 5Z"
-                    fill="#000"
-                  />
+                    fill="#000" />
                   <path
                     d="M12 9c.056 0 .112.002.167.005l-3.162 3.162A3 3 0 0 1 12 9ZM14.995 11.833l-3.162 3.162a3 3 0 0 0 3.162-3.162Z"
-                    fill="#000"
-                  />
+                    fill="#000" />
                   <path
                     d="M12 17a8.047 8.047 0 0 1-1.935-.237L8.468 18.36c1.14.425 2.332.64 3.532.64 3.837 0 7.588-2.199 9.84-6.412a1.376 1.376 0 0 0-.01-1.307c-.776-1.4-1.717-2.573-2.771-3.511l-1.417 1.416c.842.732 1.61 1.65 2.266 2.763C17.96 15.372 14.94 17 12 17Z"
-                    fill="#000"
-                  />
+                    fill="#000" />
                 </svg>
               </span>
             </div>
@@ -418,24 +228,15 @@
                 <img :src="fileUrlImg" alt="" />
                 <label v-show="uploadFileState" for="reg_img" class="filupload_label">
                   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none">
-                    <path
-                      fill="#448FFF"
-                      fill-rule="evenodd"
+                    <path fill="#448FFF" fill-rule="evenodd"
                       d="m15.567 7.634 1.663 1.637-7.371 7.485a.975.975 0 0 0 0 1.363.902.902 0 0 0 1.284-.002l8.11-8.238a3.116 3.116 0 0 0 0-4.357c-1.13-1.153-3.128-1.127-4.235.002L6.166 14.51a5.256 5.256 0 0 0 0 7.35c1.94 1.98 5.274 1.948 7.185-.001l10.323-10.485 1.663 1.637-10.322 10.483c-2.816 2.873-7.653 2.92-10.515 0a7.59 7.59 0 0 1 .002-10.62l8.852-8.986c2.01-2.05 5.512-2.096 7.566 0a5.45 5.45 0 0 1-.002 7.626l-8.105 8.233a3.233 3.233 0 0 1-4.621.005 3.31 3.31 0 0 1 .002-4.63l7.373-7.488Z"
-                      clip-rule="evenodd"
-                    />
+                      clip-rule="evenodd" />
                   </svg>
                   <span class="fileuploadtxt">
                     JPEG, JPG, PNG formatda 5 mb dan ortiq bolmagan rasm
                   </span>
-                  <input
-                    ref="fileupload"
-                    type="file"
-                    accept=".png, .jpg, .jpeg"
-                    @change="validateCheckSize($event)"
-                    id="reg_img"
-                    :class="{ inputError: inputErrorState.file }"
-                  />
+                  <input ref="fileupload" type="file" accept=".png, .jpg, .jpeg" @change="validateCheckSize($event)"
+                    id="reg_img" :class="{ inputError: inputErrorState.file }" />
                 </label>
               </div>
             </div>
@@ -446,11 +247,7 @@
       </div>
     </div>
     <div class="backg_animation">
-      <img
-        class="backg_image"
-        src="https://expert.uz/media/store/new_images/back_circle.svg"
-        alt=""
-      />
+      <img class="backg_image" src="https://expert.uz/media/store/new_images/back_circle.svg" alt="" />
     </div>
   </section>
 </template>
@@ -733,12 +530,14 @@ export default {
         `https://api.dev.realsoft.academy/api/public/check/user?login=${this.login.login}&&password=${this.login.password}`,
         requestOptions
       )
-        .then((response) => response.text())
+        .then((response) => response.json())
         .then((result) => {
-          console.log('result', result)
-          localStorage.setItem('auth_users', JSON.stringify(this.login))
-          history.pushState({}, '', `dashboard`)
-          window.location.reload()
+          if (result.data.check > 0) {
+            console.log('result', result)
+            localStorage.setItem('auth_users', JSON.stringify(result.data.user_info))
+            history.pushState({}, '', `dashboard`)
+            window.location.reload()
+          }
         })
         .catch((error) => console.log('error', error))
     },
@@ -782,7 +581,7 @@ export default {
       this.countryNameForSort = ''
     },
 
-    checkPress() {},
+    checkPress() { },
     chooseRegion(id) {
       event.stopPropagation()
       let choosenRegion = this.regions.find((item) => item.id == id)
@@ -793,7 +592,7 @@ export default {
       this.$refs.customSelectChooseRegion.innerText = choosenRegion.country_name
       this.countryNameForSort = ''
     },
-    replacer(match) {},
+    replacer(match) { },
     resendMSG() {
       let id = this.currentUserID
 
@@ -1522,7 +1321,7 @@ export default {
       }
 
       fetch('https://api.dev.realsoft.academy/api/public/reagistrate/user', requestOptions)
-        .then((response) => response.json()) 
+        .then((response) => response.json())
         .then((result) => {
           console.log('result', result, typeof result)
           localStorage.setItem('auth_users', JSON.stringify(result.data.user_info))

@@ -21,7 +21,17 @@ import MenuList from '../main-info/menu_data.js'
             :class="{ active_menu: path == item.name }"
             @click="changeRouter"
           >
+            <!-- v-if=" item.name =='addpleace'  userInfo.level == 1" -->
             <MenuItem :menuInfo="item" :isMobile="isMobile"></MenuItem>
+          </li>
+          <li
+            class="sidebar_content-item"
+            v-for="(item, index) in adminMenu"
+            :key="index"
+            :class="{ active_menu: path == item.name }"
+            @click="changeRouter"
+          >
+            <MenuItem :menuInfo="item" :isMobile="isMobile" v-if="this.userInfo.level == 1"></MenuItem>
           </li>
         </ul>
       </div>
@@ -43,7 +53,16 @@ export default {
     return {
       isMobile: false,
       menuList: MenuList.menuList,
-      path: this.$route.name
+      path: this.$route.name,
+      userInfo: JSON.parse(localStorage.getItem('auth_users')),
+      adminMenu: [
+        {
+          text: 'Yangi hudud joylash',
+          path: 'addpleace',
+          name: 'addpleace',
+          imglink: 'https://img.icons8.com/android/24/monastery.png'
+        }
+      ]
     }
   },
 
